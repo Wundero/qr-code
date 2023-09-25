@@ -73,6 +73,8 @@ declare global {
       'positionRingColor'?: string;
       'protocol'?: string;
       'squares'?: boolean;
+      'ref'?: JSX.Ref<HTMLQrCodeElement>;
+      'children'?: Element | React.ReactNode;
     }
   }
 }
