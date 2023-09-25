@@ -1,4 +1,4 @@
-import { QRCodeEntity } from './animations';
+import { QRCodeEntity } from '@q/animations';
 
 export const distanceBetween = (
   x1: number,

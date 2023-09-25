@@ -5,7 +5,7 @@ import {
   underdampedHarmonicOscillationMaximums,
   applyToValues,
   scaleOscillationsToOffset,
-} from './animation-utils';
+} from '@q/animation-utils';
 
 export enum QRCodeEntity {
   Module = 'module',

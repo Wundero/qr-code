@@ -7,6 +7,7 @@ import {
   Method,
   State,
   Watch,
+  h
 } from '@stencil/core';
 
 import { addPlugin, animate } from 'just-animate';
@@ -22,7 +23,7 @@ import {
   QRCodeAnimation,
   QRCodeEntity,
   AnimationPreset,
-} from './animations';
+} from '@q/animations';
 
 @Component({
   tag: 'qr-code',
@@ -75,7 +76,7 @@ export class BpQRCode {
       ? this.qrCodeElement.querySelector('[slot]')
         ? true
         : false
-      : realSlot
+      : realSlot && typeof realSlot.assignedNodes === 'function'
       ? realSlot.assignedNodes().length > 0
       : false;
 
@@ -83,14 +84,14 @@ export class BpQRCode {
   }
 
   @Method()
-  animateQRCode(animation?: AnimationPreset | QRCodeAnimation) {
+  async animateQRCode(animation?: AnimationPreset | QRCodeAnimation) {
     this.executeAnimation(
       typeof animation === 'string' ? getAnimationPreset(animation) : animation
     );
   }
 
   @Method()
-  getModuleCount() {
+  async getModuleCount() {
     return this.moduleCount;
   }
 
